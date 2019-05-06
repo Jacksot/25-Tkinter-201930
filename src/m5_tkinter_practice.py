@@ -13,35 +13,44 @@ from tkinter import ttk
 def main():
     """ Constructs a GUI with stuff on it. """
     # -------------------------------------------------------------------------
-    # TODO: 2. After reading and understanding the m1e module,
+    # DONE: 2. After reading and understanding the m1e module,
     #   ** make a window that shows up. **
     # -------------------------------------------------------------------------
+    root = tkinter.Tk()
+
 
     # -------------------------------------------------------------------------
-    # TODO: 3. After reading and understanding the m2e module,
+    # DONE: 3. After reading and understanding the m2e module,
     #   ** put a Frame on the window. **
     # -------------------------------------------------------------------------
-
+    frame1 = ttk.Frame(root, padding=50)
+    frame1.grid()
     # -------------------------------------------------------------------------
-    # TODO: 4. After reading and understanding the m2e module,
+    # DONE: 4. After reading and understanding the m2e module,
     #   ** put a Button on the Frame. **
     # -------------------------------------------------------------------------
+    button = ttk.Button(frame1, text='Do not press!')
 
     # -------------------------------------------------------------------------
-    # TODO: 5. After reading and understanding the m3e module,
+    # DONE: 5. After reading and understanding the m3e module,
     #   ** make your Button respond to a button-press **
     #   ** by printing   "Hello"  on the Console.     **
     # -------------------------------------------------------------------------
-
+    button['command'] = lambda: stuffs()
+    button.grid()
     # -------------------------------------------------------------------------
-    # TODO: 6. After reading and understanding the m4e module,
+    # DONE: 6. After reading and understanding the m4e module,
     #   -- Put an Entry box on the Frame.
     #   -- Put a second Button on the Frame.
     #   -- Make this new Button, when pressed, print "Hello"
     #        on the Console if the current string in the Entry box
     #        is the string 'ok', but print "Goodbye" otherwise.
     # -------------------------------------------------------------------------
-
+    entry_box = ttk.Entry(frame1)
+    entry_box.grid()
+    button_2 = ttk.Button(frame1, text='Entry')
+    button_2['command'] = lambda: print_stuffs(entry_box)
+    button_2.grid()
     # -------------------------------------------------------------------------
     # TODO: 7.
     #    -- Put a second Entry on the Frame.
@@ -65,13 +74,33 @@ def main():
     #      s = entry_box.get()
     #      n = int(s)
     ####################################################################
-
+    entry_box_2 = ttk.Entry(frame1)
+    entry_box_2.grid()
+    button_3 = ttk.Button(frame1, text='print more')
+    button_3['command'] = lambda:
+    button_3.grid()
     # -------------------------------------------------------------------------
     # TODO: 8. As time permits, do other interesting GUI things!
     # -------------------------------------------------------------------------
 
-
+    root.mainloop()
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
 # -----------------------------------------------------------------------------
+
+def stuffs():
+    print('Hello')
+
+def print_stuffs(entry_box):
+    inside_box = entry_box.get()
+    if inside_box == 'ok':
+        print('Hello')
+    else:
+        print('Goodbye')
+
+def print_more_stuffs(entry_box, entry_box_2):
+    inside_box_1 = entry_box.get()
+    inside_box_2 = entry_box_2.get()
+    
+
 main()
