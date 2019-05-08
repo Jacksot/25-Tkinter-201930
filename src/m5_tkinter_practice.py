@@ -52,7 +52,7 @@ def main():
     button_2['command'] = lambda: print_stuffs(entry_box)
     button_2.grid()
     # -------------------------------------------------------------------------
-    # TODO: 7.
+    # DONE: 7.
     #    -- Put a second Entry on the Frame.
     #    -- Put a third Button on the frame.
     #    -- Make this new Button respond to a button-press as follows:
@@ -77,12 +77,11 @@ def main():
     entry_box_2 = ttk.Entry(frame1)
     entry_box_2.grid()
     button_3 = ttk.Button(frame1, text='print more')
-    button_3['command'] = lambda:
+    button_3['command'] = lambda: print_more_stuffs(entry_box, entry_box_2)
     button_3.grid()
     # -------------------------------------------------------------------------
-    # TODO: 8. As time permits, do other interesting GUI things!
+    # DONE: 8. As time permits, do other interesting GUI things!
     # -------------------------------------------------------------------------
-
     root.mainloop()
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
@@ -101,6 +100,11 @@ def print_stuffs(entry_box):
 def print_more_stuffs(entry_box, entry_box_2):
     inside_box_1 = entry_box.get()
     inside_box_2 = entry_box_2.get()
+    n = int(inside_box_2)
+    if type(inside_box_1) is str:
+        if type(n) is int:
+            for k in range(n):
+                print(inside_box_1)
     
 
 main()
